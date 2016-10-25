@@ -1,12 +1,12 @@
-function loadPage(url, callback){
+function loadCardPage(cardName, callback){
 	var xhr = new XMLHttpRequest();
-	xhr.open("get", url, true);
+	xhr.open("get", "card/" + name, true);
 	xhr.onload = function() {
 		var status = xhr.status;
 		if (status == 200) {
-			callback(null, xhr.response);
+			callback(cardName, null, xhr.response);
 		}else{
-			callback(status);
+			callback(cardName, status);
 		}
 	};
 	xhr.send();
@@ -27,6 +27,7 @@ function cardCallback(cardName, err, data) {
 }
 
 function createCardVue(cardName, cardData) {
+	console.log("Creating vue " + cardName);
 	new Vue({
 		el: "#card_" + cardName,
 		data: cardData[cardName],
@@ -34,7 +35,7 @@ function createCardVue(cardName, cardData) {
 }
 
 function updateCardData(cardName, cardData) {
-	loadPage("card/" + cardName, function(err, data){
+	loadCardPage(cardName, function(cardName, err, data){
 		cardCallback(cardName, err, data);
 	});
 }
@@ -45,13 +46,14 @@ var cardData = {};
 for(var i = 0; i < cardList.length; i ++) {
 	var id = cardList[i].id;
 	var name = id.substring(id.indexOf("_") + 1);
-	loadPage("card/" + name, function(err, data){
+	loadCardPage(name, function(name, err, data){
 		cardCallback(name, err, data);
 		createCardVue(name, cardData);
 	});
 }
 
 var updateAll = function() {
+	console.log("Updating");
 	for(var key in cardData) {
 		updateCardData(key, cardData);
 	}
