@@ -1,0 +1,24 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Noah By the Numbers</title>
+		<script src="https://unpkg.com/vue@next/dist/vue.js"></script>
+	</head>
+	<body>
+		<h1>Noah by the numbers.</h1>
+		<p>Hi there!</p>
+		<div id="card0">
+			<p>Yeah</p>
+			<p>{{ message }}</p>
+		</div>
+		<div id="ceres_cards">
+			{% for card in cards %}
+			<div id="card_{{ card.name }}">
+				{{ card.template }}
+			</div>
+			{% endfor %}
+		</div>
+		<script src="./cards.js"></script>
+	</body>
+</html>
