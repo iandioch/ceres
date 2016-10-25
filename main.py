@@ -4,10 +4,11 @@ from card import Card
 app = Flask(__name__)
 
 def create_card(name):
-	return Card(name, "cards/" + name + "/template.txt", "cards/" + name + "/data.json")
+	return Card(name, "cards/" + name + "/template.html", "cards/" + name + "/data.json")
 
 cards = {
-	"example": create_card("example")
+	"openbugbounty": create_card("openbugbounty"),
+	"euler": create_card("euler"),
 }
 
 @app.route("/card/<string:name>")
@@ -24,7 +25,7 @@ def get_raw(loc):
 @app.route("/")
 def get_index():
 	print('TEMPLATE, yeah bb')
-	return render_template('index.html', cards=[vars(c) for c in cards.values()])
+	return render_template('index.html', cards=[vars(cards[c]) for c in sorted(cards)])
 
 @app.route("/<path:loc>")
 def get_root(loc):
