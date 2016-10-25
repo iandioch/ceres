@@ -1,6 +1,7 @@
 #!/bin/bash
-git clone https://github.com/iandioch/solutions.git
-cloc --skip-uniqueness --csv --quiet --3 --out=cloc.csv solutions
+cd /home/waterloo/ceres/cards/euler
+git clone https://github.com/iandioch/solutions.git /tmp/solutions
+cloc --skip-uniqueness --csv --quiet --3 --out=/tmp/cloc.csv /tmp/solutions/project_euler
 python3 analyse.py
-rm -rf solutions
-rm cloc.csv
+rm -rf /tmp/solutions
+rm /tmp/cloc.csv

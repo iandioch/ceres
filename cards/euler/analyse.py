@@ -3,7 +3,7 @@ import os
 import glob
 
 def get_all_solutions():
-	files = glob.glob('solutions/project_euler/*', recursive=True)
+	files = glob.glob('/tmp/solutions/project_euler/*', recursive=True)
 	#return [f for f in files if f[-4:] != '.txt' and f[-4:] != '.csv'] # remove a few data files
 	return files
 
@@ -12,7 +12,7 @@ if __name__ == '__main__':
 	solution_files = get_all_solutions()
 	num_problems = len(solution_files)
 	data = {"num_problems": num_problems}
-	with open('cloc.csv', 'r') as filereader:
+	with open('/tmp/cloc.csv', 'r') as filereader:
 		csv = filereader.read()
 		print(csv)
 		curr_lang = 0
