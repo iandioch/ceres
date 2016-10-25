@@ -3,6 +3,15 @@ from card import Card
 
 app = Flask(__name__)
 
+outs = {
+	"resume": "/out/cv",
+	"cv": "/raw/cv.pdf",
+	"twitter": "https://twitter.com/iandioch",
+	"linkedin": "https://ie.linkedin.com/in/iandioch",
+	"facebook": "https://facebook.com/noahdonnelly",
+	"github": "https://github.com/iandioch" 
+}
+
 def create_card(name):
 	return Card(name, "cards/" + name + "/template.html", "cards/" + name + "/data.json")
 
@@ -21,6 +30,12 @@ def get_card(name):
 def get_raw(loc):
 	with open("raw/" + loc, 'r') as filereader:
 		return filereader.read()
+
+@app.route("/out/<path:loc>")
+def get_out(loc):
+	if loc in outs:
+		return '<meta http-equiv="refresh" content="0;url=%s">'%outs[loc]
+	return "<h1>uwu what's this</h1>"
 
 @app.route("/")
 def get_index():
