@@ -1,6 +1,6 @@
 function loadCardPage(cardName, callback){
 	var xhr = new XMLHttpRequest();
-	xhr.open("get", "card/" + name, true);
+	xhr.open("get", "card/" + cardName, true);
 	xhr.onload = function() {
 		var status = xhr.status;
 		if (status == 200) {
@@ -35,8 +35,8 @@ function createCardVue(cardName, cardData) {
 }
 
 function updateCardData(cardName, cardData) {
-	loadCardPage(cardName, function(cardName, err, data){
-		cardCallback(cardName, err, data);
+	loadCardPage(cardName, function(cardName_, err, data){
+		cardCallback(cardName_, err, data);
 	});
 }
 
@@ -46,9 +46,9 @@ var cardData = {};
 for(var i = 0; i < cardList.length; i ++) {
 	var id = cardList[i].id;
 	var name = id.substring(id.indexOf("_") + 1);
-	loadCardPage(name, function(name, err, data){
-		cardCallback(name, err, data);
-		createCardVue(name, cardData);
+	loadCardPage(name, function(cardName, err, data){
+		cardCallback(cardName, err, data);
+		createCardVue(cardName, cardData);
 	});
 }
 
