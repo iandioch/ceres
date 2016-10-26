@@ -17,13 +17,17 @@ if __name__ == '__main__':
 		print(csv)
 		curr_lang = 0
 		total_files = 0
+		langs = {}
 		for lang in csv.split('\n')[1:]:
 			parts = lang.split(',')
 			if len(parts) == 1:
 				break
 			print(parts)
-			data['lang%d' % curr_lang] = parts[1]
-			num_files = int(parts[0])
+			langs[parts[1]] = int(parts[0])
+
+		for lang in sorted(langs, key=lambda x:langs[x], reverse=True):
+			data['lang%d' % curr_lang] = lang
+			num_files = langs[lang]
 			data['num_lang%d' % curr_lang] = num_files
 			total_files += num_files
 			curr_lang += 1
