@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, send_from_directory
 from card import Card
 
 app = Flask(__name__)
@@ -28,8 +28,7 @@ def get_card(name):
 
 @app.route("/raw/<path:loc>")
 def get_raw(loc):
-	with open("raw/" + loc, 'r') as filereader:
-		return filereader.read()
+	return send_from_directory('raw', loc)
 
 @app.route("/out/<path:loc>")
 def get_out(loc):
@@ -50,4 +49,4 @@ def get_root(loc):
 	return get_raw(loc)
 
 if __name__ == "__main__":
-	app.run(host="needs.money", port=9010)
+	app.run(host="needs.money", port=80)
