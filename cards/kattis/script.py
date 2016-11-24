@@ -31,7 +31,7 @@ def get_user_data(page):
 	table = soup.find('table')
 	rows = table.find_all('tr')
 	data['global_rank'] = number_to_position(int(rows[1].find_all('td')[0].string))
-	data['score'] = float(rows[1].find_all('td')[1].string)
+	data['score'] = (rows[1].find_all('td')[1].string)
 	return data
 
 def get_rank_data(page):
