@@ -22,9 +22,7 @@
 			<div id="ceres_cards">
 				{% for card in cards %}
 				<div id="card_{{ card.name }}">
-					{% autoescape false %}
 					{{ card.template }}
-					{% endautoescape %}
 				</div>
 				{% endfor %}
 			</div>
