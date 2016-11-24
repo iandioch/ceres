@@ -3,7 +3,7 @@ import os
 import glob
 
 def get_all_solutions():
-	files = glob.glob('/tmp/solutions/project_euler/*', recursive=True)
+	files = glob.glob('/tmp/solutions/project_euler/*')
 	#return [f for f in files if f[-4:] != '.txt' and f[-4:] != '.csv'] # remove a few data files
 	return files
 
