@@ -21,7 +21,7 @@ def get_data(page):
 	
 	data['num_vulns'] = int(rows[0].find_all('td')[1].string)
 	data['num_vip'] = int(rows[1].find_all('td')[1].string)
-	data['num_top_vip_of_week'] = len(rows[5].find_all(src="/images/stars/bronze-vip.png"))
+	data['num_top_vip_of_week'] = len(rows[4].find_all(src="/images/stars/bronze-vip.png"))
 	return data
 
 if __name__ == '__main__':
