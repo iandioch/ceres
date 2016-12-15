@@ -1,7 +1,11 @@
-from flask import Flask, render_template, send_from_directory
+from flask import Flask, send_from_directory
+from jinja2 import Template, Environment, FileSystemLoader
 from card import Card
+import sys
 
 app = Flask(__name__)
+
+env = Environment(loader=FileSystemLoader('/home/waterloo/ceres/templates'))
 
 outs = {
 	"resume": "/out/cv",
@@ -12,12 +16,19 @@ outs = {
 	"github": "https://github.com/iandioch" 
 }
 
+def render_template(name, d):
+	template = env.get_template(name)
+	return template.render(d)
+
+print render_template('index.html', {'cards':[]})
+
 def create_card(name):
 	return Card(name, "cards/" + name + "/template.html", "cards/" + name + "/data.json")
 
 cards = {
 	"openbugbounty": create_card("openbugbounty"),
 	"euler": create_card("euler"),
+	"kattis": create_card("kattis"),
 }
 
 @app.route("/card/<string:name>")
@@ -38,8 +49,12 @@ def get_out(loc):
 
 @app.route("/")
 def get_index():
+	d = {
+		'cards': [vars(cards[c]) for c in sorted(cards)]
+	}
+
 	print('TEMPLATE, yeah bb')
-	return render_template('index.html', cards=[vars(cards[c]) for c in sorted(cards)])
+	return render_template('index.html', d)
 
 @app.route("/<path:loc>")
 def get_root(loc):
@@ -49,4 +64,4 @@ def get_root(loc):
 	return get_raw(loc)
 
 if __name__ == "__main__":
-	app.run(host="needs.money", port=80)
+	app.run(host="localhost", port=9010)
