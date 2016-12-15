@@ -5,20 +5,22 @@ import json, urllib.request, os.path
 def get_json_web(url):
 	try:
 		bytedata= urllib.request.urlopen(url).read()
-		return json.loads(str(bytedata))
+		strdata = bytes.decode(bytedata)
+		return json.loads(strdata)
 	except Exception as e:
 		print(e)
 		return None
 
 def get_json_file(path):
-	if os.path.isfile('data.json'):
-		with open('data.json', 'r') as data:
+	if os.path.isfile(path):
+		with open(path, 'r') as data:
 			try:
 				return json.load(data)
 			except Exception as e:
 				print(e)
 				return None
 	else:
+		print('No such file found')
 		return None
 
 
