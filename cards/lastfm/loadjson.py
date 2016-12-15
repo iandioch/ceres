@@ -4,7 +4,13 @@ import json, urllib.request, os.path
 
 def get_json_web(url):
 	try:
-		bytedata= urllib.request.urlopen(url).read()
+		req = urllib.request.Request(
+			url,
+			headers={
+				'User-Agent': 'python-urllib2; ceres/last.fm (github.com/iandioch/ceres)'
+			}
+		)
+		bytedata= urllib.request.urlopen(req).read()
 		strdata = bytes.decode(bytedata)
 		return json.loads(strdata)
 	except Exception as e:
