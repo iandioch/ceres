@@ -29,6 +29,7 @@ cards = {
 	"openbugbounty": create_card("openbugbounty"),
 	"euler": create_card("euler"),
 	"kattis": create_card("kattis"),
+	"lastfm": create_card("lastfm"),
 }
 
 @app.route("/card/<string:name>")
