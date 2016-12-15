@@ -24,7 +24,7 @@ if __name__ == '__main__':
 	track_date_str = datetime.datetime.fromtimestamp(
 			track_date_uts,
 			tz=datetime.timezone.utc
-	).strftime('%H:%M on %d/%m/%Y')
+	).strftime('%H:%M GMT on %d/%m/%Y')
 	print(track_name)
 	print(track_artist)
 	print(track_date_str)
