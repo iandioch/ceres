@@ -58,4 +58,5 @@ var updateAll = function() {
 		updateCardData(key, cardData);
 	}
 }
+// Run updateAll every 60 seconds
 window.setInterval(updateAll, 60000);
