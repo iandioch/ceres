@@ -14,7 +14,6 @@ if __name__ == '__main__':
 	data = {"num_problems": num_problems}
 	with open('/tmp/cloc.csv', 'r') as filereader:
 		csv = filereader.read()
-		print(csv)
 		curr_lang = 0
 		total_files = 0
 		langs = {}
@@ -22,7 +21,6 @@ if __name__ == '__main__':
 			parts = lang.split(',')
 			if len(parts) == 1:
 				break
-			print(parts)
 			langs[parts[1]] = int(parts[0])
 
 		for lang in sorted(langs, key=lambda x:langs[x], reverse=True):
@@ -34,6 +32,7 @@ if __name__ == '__main__':
 		data['num_solutions'] = total_files
 
 	json_data = json.dumps(data, indent=4)
+        print(json_data)
 	with open('data.json', 'w') as filewriter:
 		filewriter.write(json_data)
 		filewriter.write('\n')
