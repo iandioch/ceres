@@ -11,7 +11,7 @@ def get_all_solutions():
 if __name__ == '__main__':	
 	solution_files = get_all_solutions()
 	num_problems = len(solution_files)
-	data = {"num_problems": num_problems}
+	data = {"num_problems_with_solutions": num_problems}
 	with open('/tmp/cloc.csv', 'r') as filereader:
 		csv = filereader.read()
 		curr_lang = 0
@@ -30,6 +30,10 @@ if __name__ == '__main__':
 			total_files += num_files
 			curr_lang += 1
 		data['num_solutions'] = total_files
+
+        with open('num_solved.txt', 'r') as filereader:
+            n = int(filereader.read())
+            data['total_solved'] = n
 
 	json_data = json.dumps(data, indent=4)
         print(json_data)
