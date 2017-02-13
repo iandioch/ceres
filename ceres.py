@@ -20,8 +20,6 @@ def render_template(name, d):
 	template = env.get_template(name)
 	return template.render(d)
 
-print render_template('index.html', {'cards':[]})
-
 def create_card(name):
 	return Card(name, "cards/" + name + "/template.html", "cards/" + name + "/data.json")
 
