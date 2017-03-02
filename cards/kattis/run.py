@@ -33,7 +33,7 @@ def number_to_position(n):
 	s = str(n)
 	if s[-1] == '1':
 		s += 'st'
-	elif s[-1] == '2':
+	elif (len(s) == 1 or s[-2] != '1') and s[-1] == '2':
 		s += 'nd'
 	elif s[-1] == '3':
 		s += 'rd'
