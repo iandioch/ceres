@@ -4,17 +4,87 @@
 		<meta charset="utf-8">
 		<title>Noah Ó Donnaile</title>
 		<script src="https://unpkg.com/vue/dist/vue.js"></script>
-		<link b rel="stylesheet" href="https://unpkg.com/tachyons@4.5.3/css/tachyons.min.css"/>
+		<!--link b rel="stylesheet" href="https://unpkg.com/tachyons@4.5.3/css/tachyons.min.css"/-->
+         <link href="https://fonts.googleapis.com/css?family=Lato|Open+Sans|Palanquin+Dark|Source+Sans+Pro" rel="stylesheet"> 
+        <style type="text/css">
+            :root {
+                --colour_feature: #961c1c;
+                --colour_white: #e9e9e9;
+                --colour_true_white: #fff;
+                --colour_black: #1c1c1c;
+                --colour_alt: #66a32d;
+            }
+
+            html, body {
+                background-color: var(--colour_white);
+                color: var(--colour_black);
+                margin: 0;
+                padding: 0;
+                border: 0;
+                font-family: 'Open Sans', sans-serif;
+            }
+
+            .b, a {
+                text-decoration: none;
+                color: var(--colour_true_white);
+                font-family: 'Lato', sans-serif;
+                font-size: 1.1em;
+                font-weight: 600;
+            }
+
+            a:hover {
+                text-decoration: underline;
+            }
+
+            #topdiv {
+                background-color: var(--colour_feature);
+                color: var(--colour_white);
+                padding: 3%;
+                padding-top: 0%;
+            }
+    
+            #topdiv a {
+                color: var(--colour_true_white);
+                text-decoration: none;
+            }
+
+            a:hover{
+                text-decoration: underline;
+            }
+
+            .header {
+                color: var(--colour_true_white);
+                text-transform: uppercase;
+                font-family: 'Palanquin Dark', sans-serif;
+                font-size: 4em;
+                line-height: 1em;
+                margin: 0.5em 0;
+            }
+
+            #maindiv {
+                background-color: var(--colour_white);
+                color: var(--colour_black);
+            }
+
+            #maindiv .header {
+                color: var(--colour_feature);
+            }
+
+            #maindiv a {
+                
+            }
+        </style>
 	</head>
-	<body class="bg-white black-80 avenir">
-		<div class="bg-green center pa5">
-			<h1 class="white-80 f1">About Me</h1>
-			<p>My name is <span class="b">Noah Ó Donnaile</span> (or <span class="b">Noah Donnelly</span>, <span class="b">iandioch</span>, or sometimes <span class="b">cac</span>), and I am from Monaghan, Ireland.</p>
+	<body class="ma0 pa0">
+		<div id="topdiv" class="ma0 pa0">
+            <br/>
+			<h1 class="f1 header">who is noah</h1>
+			<!--p>My name is <span class="b">Noah Ó Donnaile</span> (or <span class="b">Noah Donnelly</span>, <span class="b">iandioch</span>, or sometimes <span class="b">cac</span>), and I am from Monaghan, Ireland.</p-->
 			<p>I am studying a <a href="http://cpssd.net" class="link b white-80">BSc. in Computational Problem Solving and Software Development</a> at Dublin City University. I am the Chairperson of <a href="http://redbrick.dcu.ie" class="link b white-80">Redbrick</a>, DCU's Networking Society. I like programming, dogs, languages (go háirithe an Ghaeilge), and dogs.</p>
 			<p>You should definitely take a wee peek at <a href="out/cv" class="link b white-80">my CV</a>. You can also read about my <a href="http://mycode.doesnot.run/tag/projects/" class="link b white-80">recent projects</a> on <a href="http://mycode.doesnot.run" class="link b white-80">my blog</a>, and subscribe to its <a href="http://mycode.doesnot.run/rss/" class="link b white-80">RSS feed</a>, if that's your kind of thing.</p>
 		</div>
-		<div class="bg-light-green center justify-around pa5 pt2">
-			<h1 class="black-80 f1 pb1 pt4">In More Detail</h1>
+		<div id="maindiv" class="center justify-around pa5 pt2">
+			<h1 class="f1 header">In More Detail</h1>
 			<p>Here is a live-updating(ish) account of some of the things I do. If there is new data since you loaded this page, it will update automatically.</p>
 
 			<div id="ceres_cards">
