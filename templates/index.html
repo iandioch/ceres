@@ -64,14 +64,17 @@
             #maindiv {
                 background-color: var(--colour_white);
                 color: var(--colour_black);
+                padding: 1% 3%;
             }
 
             #maindiv .header {
                 color: var(--colour_feature);
             }
 
-            #maindiv a {
-                
+            #bottomdiv {
+                background-color: var(--colour_alt);
+                color: var(--colour_white);
+                padding: 1% 3%;
             }
         </style>
 	</head>
@@ -83,8 +86,8 @@
 			<p>I am studying a <a href="http://cpssd.net" class="link b white-80">BSc. in Computational Problem Solving and Software Development</a> at Dublin City University. I am the Chairperson of <a href="http://redbrick.dcu.ie" class="link b white-80">Redbrick</a>, DCU's Networking Society. I like programming, dogs, languages (go háirithe an Ghaeilge), and dogs.</p>
 			<p>You should definitely take a wee peek at <a href="out/cv" class="link b white-80">my CV</a>. You can also read about my <a href="http://mycode.doesnot.run/tag/projects/" class="link b white-80">recent projects</a> on <a href="http://mycode.doesnot.run" class="link b white-80">my blog</a>, and subscribe to its <a href="http://mycode.doesnot.run/rss/" class="link b white-80">RSS feed</a>, if that's your kind of thing.</p>
 		</div>
-		<div id="maindiv" class="center justify-around pa5 pt2">
-			<h1 class="f1 header">In More Detail</h1>
+		<div id="maindiv">
+			<h1 class="header">More Detail</h1>
 			<p>Here is a live-updating(ish) account of some of the things I do. If there is new data since you loaded this page, it will update automatically.</p>
 
 			<div id="ceres_cards">
@@ -95,10 +98,10 @@
 				{% endfor %}
 			</div>
 		</div>
-		<div class="bg-dark-green center justify-around pa5 pt2">
-			<h1 class="white-80 f1">Contact</h1>
-			<p>Feel free to find me on <a href="https://twitter.com/iandioch" class="link b white-80">Twitter</a>, <a href="https://github.com/iandioch" class="link b white-80">Github</a>, or <a href="https://ie.linkedin.com/in/iandioch" class="link b white-80">LinkedIn</a>.</p>
-			<p>This website was made with Flask, Jinja2, Vue.js, Tachyons CSS, and a pile of scrapers and scripts. Suggest changes at <a href="https://github.com/iandioch/ceres" class="link b white-80">its git repo</a>. Praise the free web xo</p>
+		<div id="bottomdiv">
+			<h1 class="header">Contact</h1>
+			<p>Feel free to find me on <a href="https://twitter.com/iandioch">Twitter</a>, <a href="https://github.com/iandioch">Github</a>, or <a href="https://ie.linkedin.com/in/iandioch">LinkedIn</a>.</p>
+			<p>This website was made with Flask, Jinja2, Vue.js, and a pile of scrapers and scripts. Suggest changes at <a href="https://github.com/iandioch/ceres">its git repo</a>. Praise the free web xo</p>
 		</div>
 		<script src="./cards.js"></script>
 	</body>
