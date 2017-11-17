@@ -11,23 +11,29 @@
                 --colour_white: #e9e9e9;
                 --colour_true_white: #f9f9f9;
                 --colour_black: #1c1c1c;
-                --colour_alt: #70a042;
+                --colour_alt: #961c1c;
             }
 
-            html, body {
+	    html {
+		font-size: 18px;
+	    }
+
+            body {
                 background-color: var(--colour_white);
                 color: var(--colour_black);
                 margin: 0;
                 padding: 0;
                 border: 0;
                 font-family: 'Work Sans', sans-serif;
-                width: 100%;
                 overflow-x: hidden;
+		max-width: 40em;
+		margin: auto;
+		font-size: 1rem;
             }
 
             .b, a {
                 text-decoration: none;
-                color: var(--colour_true_white);
+		color: var(--colour_feature);
                 font-family: 'Work Sans', sans-serif;
                 font-size: 1.1em;
                 font-weight: 600;
@@ -37,26 +43,14 @@
                 text-decoration: underline;
             }
 
-            #topdiv {
-                background-color: var(--colour_feature);
-                color: var(--colour_white);
-                padding: 3%;
-                padding-top: 0%;
-            }
-    
-            #topdiv .b, a {
-                color: var(--colour_true_white);
-            }
-
             a:hover{
                 text-decoration: underline;
             }
 
             .header {
-                color: var(--colour_true_white);
                 text-transform: uppercase;
                 font-family: 'Work Sans', sans-serif;
-                font-size: 4em;
+                font-size: 4rem;
                 line-height: 1em;
                 margin: 0.5em 0;
             }
@@ -68,43 +62,39 @@
                 padding-top: 2%;
             }
 
-            #maindiv {
-                background-color: var(--colour_true_white);
-                color: var(--colour_black);
-                padding: 1% 3%;
-            }
+	    .card {
+		width: 19em;
+		float: left;
+		margin-left: 2em;
+		font-size: 16px;
+	    }
 
-            #maindiv .header {
-                color: var(--colour_feature);
-            }
+	    .card:nth-child(odd) {
+		margin-left: 0;
+	    }
 
-            #maindiv a, .b {
-                color: var(--colour_feature);
-            }
-
-            #bottomdiv {
-                background-color: var(--colour_alt);
-                color: var(--colour_white);
-                padding: 1% 3%;
-            }
+	    #bottomdiv {
+		clear: both;
+		padding: 0;
+		padding-top: 1%;
+		padding-bottom: 5%;
+	    }
         </style>
 	</head>
     <body>
-		<div id="topdiv">
             <br/>
-			<h1 class="header">who is noah</h1>
+	    <h1 class="header">who is noah</h1>
             <p>My name is <span class="b">Noah Ó Donnaile</span> (or Noah Donnelly, iandioch, cac), and I am from Monaghan, Ireland.
-            <p>I am studying a <a href="http://cpssd.net" class="link b white-80">BSc. in Computational Problem Solving and Software Development</a> at Dublin City University. I'm the Chairperson of <a href="http://redbrick.dcu.ie" class="link b white-80">Redbrick</a>, DCU's Networking Society.</p>
+            <p>I am studying a <a href="http://cpssd.net" class="link b">BSc. in Computational Problem Solving and Software Development</a> at Dublin City University. I'm the Chairperson of <a href="http://redbrick.dcu.ie" class="link b white-80">Redbrick</a>, DCU's Networking Society.</p>
             <p>I like dogs, programming, dogs, languages (go háirithe an Ghaeilge), and dogs.</p>
-            <p>I'm looking for an internship; <a href="out/cv">take a wee peek at my CV</a>. Read about my <a href="http://mycode.doesnot.run/tag/projects/">recent projects</a> on <a href="http://mycode.doesnot.run">my blog</a>, and subscribe to its <a href="http://mycode.doesnot.run/rss/">RSS feed</a>.</p>
-		</div>
+            <p>I'm looking for an internship; <a href="out/cv" class="link b">take a wee peek at my CV</a>. Read about my <a href="http://mycode.doesnot.run/tag/projects/" class="link b">recent projects</a> on <a href="http://mycode.doesnot.run" class="link b">my blog</a>, and subscribe to its <a href="http://mycode.doesnot.run/rss/" class="link b">RSS feed</a>.</p>
 		<div id="maindiv">
 			<h1 class="header">More Detail</h1>
 			<p>Here is cold hard data about me, coming at you live (Ajax-fetched and plugged into Vue.js):</p>
 
 			<div id="ceres_cards">
 				{% for card in cards %}
-				<div id="card_{{ card.name }}">
+				<div id="card_{{ card.name }}" class="card">
 					{{ card.template }}
 				</div>
 				{% endfor %}
