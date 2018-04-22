@@ -1,10 +1,10 @@
 <!doctype html>
 <html>
-	<head>
-		<meta charset="utf-8">
-		<title>Noah Ó Donnaile</title>
-		<script src="https://unpkg.com/vue/dist/vue.js"></script>
-		<link href="https://fonts.googleapis.com/css?family=Work+Sans:300" rel="stylesheet">
+    <head>
+        <meta charset="utf-8">
+        <title>Noah Ó Donnaile</title>
+        <script src="https://unpkg.com/vue/dist/vue.js"></script>
+        <link href="https://fonts.googleapis.com/css?family=Work+Sans:300" rel="stylesheet">
         <style type="text/css">
             :root {
                 --colour_feature: #961c1c;
@@ -14,26 +14,26 @@
                 --colour_alt: #961c1c;
             }
 
-	    html {
-		font-size: 20px;
-	    }
+            html {
+                font-size: 20px;
+            }
 
             body {
-                background-color: var(--colour_white);
+                background-color: #FFF; /*var(--colour_white);*/
                 color: var(--colour_black);
                 margin: 0;
                 padding: 0;
                 border: 0;
                 font-family: 'Work Sans', sans-serif;
                 overflow-x: hidden;
-		max-width: 40em;
-		margin: auto;
-		font-size: 1rem;
+                max-width: 40em;
+                margin: auto;
+                font-size: 1rem;
             }
 
             .b, a {
                 text-decoration: none;
-		color: var(--colour_feature);
+                color: var(--colour_feature);
                 font-family: 'Work Sans', sans-serif;
                 font-size: 1.1em;
                 font-weight: 600;
@@ -62,54 +62,103 @@
                 padding-top: 2%;
             }
 
-	    .card {
-		width: 19em;
-		float: left;
-		margin-left: 2em;
-		font-size: 1rem;
-	    }
+            .card {
+                width: 19em;
+                float: left;
+                margin-left: 2em;
+                font-size: 1rem;
+            }
 
-	    .card:nth-child(odd) {
-		margin-left: 0;
-	    }
+            .card:nth-child(odd) {
+                margin-left: 0;
+            }
 
-	    #bottomdiv {
-		clear: both;
-		padding: 0;
-		padding-top: 1%;
-		padding-bottom: 5%;
-	    }
+            #bottomdiv {
+                clear: both;
+                padding: 0;
+                padding-top: 1%;
+                padding-bottom: 5%;
+            }
         </style>
-	</head>
+    </head>
     <body>
-            <br/>
-	    <h1 class="header">who is noah</h1>
+        <br/>
+        <h1 class="header">who is noah</h1>
             <p>My name is <span class="b">Noah Ó Donnaile</span> (or Noah Donnelly, iandioch, cac), and I am from Monaghan, Ireland.
             <p>I am studying a <a href="http://cpssd.net" class="link b">BSc. in Computational Problem Solving and Software Development</a> at Dublin City University.</p>
             <p>I like dogs, programming, dogs, languages (go háirithe an Ghaeilge), and dogs.</p>
             <p>I'm looking for an internship; <a href="out/cv" class="link b">take a wee peek at my CV</a>. Read about my <a href="http://mycode.doesnot.run/tag/projects/" class="link b">recent projects</a> on <a href="http://mycode.doesnot.run" class="link b">my blog</a>, and subscribe to its <a href="http://mycode.doesnot.run/rss/" class="link b">RSS feed</a>.</p>
-		<div id="maindiv">
-			<h1 class="header">More Detail</h1>
-			<p>Here is cold hard data about me, coming at you live (Ajax-fetched and plugged into Vue.js):</p>
+        <div id="maindiv">
+            <h1 class="header">More Detail</h1>
+            <p>Here is cold hard data about me, coming at you live (Ajax-fetched and plugged into Vue.js):</p>
 
-			<div id="ceres_cards">
-				{% for card in cards %}
-				<div id="card_{{ card.name }}" class="card">
-					{{ card.template }}
-				</div>
-				{% endfor %}
-			</div>
-		</div>
-		<div id="bottomdiv">
-			<h1 class="header">Contact</h1>
+            <div id="ceres_cards">
+                {% for card in cards %}
+                <div id="card_{{ card.name }}" class="card">
+                    {{ card.template }}
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+        <div id="bottomdiv">
+            <h1 class="header">Contact</h1>
             <p>Find me on <a href="https://twitter.com/iandioch">Twitter</a>, <a href="https://github.com/iandioch">Github</a>, or <a href="https://ie.linkedin.com/in/iandioch">LinkedIn</a>. I'm on <a href="https://keybase.io/iandioch">keybase</a>.</p>
-			<p>This website was made with Flask, Jinja2, Vue.js, and a pile of scrapers and scripts. Suggest changes at <a href="https://github.com/iandioch/ceres">its git repo</a>. It is eternally in a state of flux. Praise the free web xo</p>
-		</div>
+            <p>This website was made with Flask, Jinja2, Vue.js, and a pile of scrapers and scripts. Suggest changes at <a href="https://github.com/iandioch/ceres">its git repo</a>. It is eternally in a state of flux. Praise the free web xo</p>
+        </div>
+        <style>
+            #ceres {
+                display: grid;
+                grid-template-columns: 2fr 1fr 1fr;
+                grid-template-rows: auto;
+                grid-template-areas:
+                    "recent_blog tweet toot"
+                    "top_links lastfm untappd";
+                grid-column-gap: 10px;
+                grid-row-gap: 20px;
+            }
+
+            .box {
+                background-color: #EEE;
+                padding: 10px;
+            }
+
+            .blog_box {
+                grid-area: recent_blog;
+            }
+            
+            .twitter_box {
+                grid-area: tweet;
+                background-color: #0084b4;
+                color: #FFF;
+            }
+
+            .mastodon_box {
+                grid-area: toot;
+                background-color: #393f4f;
+                color: #FFF;
+            }
+
+            .links_box {
+                grid-area: top_links;
+            }
+        </style>
         {% raw %}
         <div id="ceres">
             <p>Hey what's up {{ euler.lang0 }}</p>
+            <div class="box blog_box">
+                <p>Recent blog posts go here.</p>
+            </div>
+            <div class="box twitter_box">
+                <p>What's up twitter</p>
+            </div>
+            <div class="box mastodon_box">
+                <p>Check out my account on mastodon.social</p>
+            </div>
+            <div class="box links_box">
+                <p>My name is Noah Ó Donnaile.</p>
+            </div>
         </div>
         {% endraw %}
-		<script src="./cards.js"></script>
-	</body>
+        <script src="./cards.js"></script>
+    </body>
 </html>
