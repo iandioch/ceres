@@ -108,18 +108,35 @@
         <style>
             #ceres {
                 display: grid;
-                grid-template-columns: 2fr 1fr 1fr;
+                grid-template-columns: 1fr 3fr 1fr 1fr 1fr;
                 grid-template-rows: auto;
                 grid-template-areas:
-                    "recent_blog tweet toot"
-                    "top_links lastfm untappd";
-                grid-column-gap: 10px;
-                grid-row-gap: 20px;
+                    "header header header header header"
+                    "lgap recent_blog tweet toot rgap"
+                    "lgap top_links lastfm untappd rgap";
+                grid-column-gap: 30px;
+                grid-row-gap: 30px;
             }
 
             .box {
                 background-color: #EEE;
+                color: #000;
+                box-shadow: 4px 6px 4px -4px #DDD;
                 padding: 10px;
+            }
+
+            .minibox {
+                color: #FFF;
+                box-shadow: 4px 6px 4px -4px #DDD;
+                padding: 10px;
+                text-align: center;
+            }
+            
+            .header_box {
+                grid-area: header;
+                background-color: #000;
+                color: #FFF;
+                text-align: center;
             }
 
             .blog_box {
@@ -129,13 +146,11 @@
             .twitter_box {
                 grid-area: tweet;
                 background-color: #0084b4;
-                color: #FFF;
             }
 
             .mastodon_box {
                 grid-area: toot;
                 background-color: #393f4f;
-                color: #FFF;
             }
 
             .links_box {
@@ -145,34 +160,35 @@
             .lastfm_box {
                 grid-area: lastfm;
                 background-color: #b90000;
-                color: #FFF;
             }
 
             .untappd_box {
                 grid-area: untappd;
                 background-color: #ffc000;
-                color: #FFF;
             }
         </style>
         {% raw %}
         <div id="ceres">
-            <p>Hey what's up {{ euler.lang0 }}</p>
+            <div class="box header_box">
+                <p>Noah Ó Donnaile</p>
+            </div>
             <div class="box blog_box">
                 <p>Recent blog posts go here.</p>
             </div>
-            <div class="box twitter_box">
+            <div class="minibox twitter_box">
                 <p>What's up twitter</p>
             </div>
-            <div class="box mastodon_box">
+            <div class="minibox mastodon_box">
                 <p>Check out my account on mastodon.social</p>
             </div>
             <div class="box links_box">
                 <p>My name is Noah Ó Donnaile.</p>
             </div>
-            <div class="box lastfm_box">
+            <div class="minibox lastfm_box">
                 <p>My last played song was {{ lastfm.last_song_title }} by {{ lastfm.last_song_artist }} at {{ lastfm.last_song_date }}.
             </div>
-            <div class="box untappd_box">
+            <div class="minibox untappd_box">
+                <p>View my Untappd profile here!</p>
             </div>
         </div>
         {% endraw %}
