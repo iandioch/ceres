@@ -2,6 +2,7 @@ from flask import Flask, send_from_directory
 from jinja2 import Template, Environment, FileSystemLoader
 from card import Card
 import sys
+import json
 
 app = Flask(__name__)
 
@@ -35,6 +36,11 @@ def get_card(name):
     if name in cards:
         return cards[name].get_data()
     return "ERROR"
+
+@app.route("/cards")
+def get_cards():
+    d = {card:json.loads(cards[card].get_data()) for card in cards}
+    return json.dumps(d)
 
 @app.route("/raw/<path:loc>")
 def get_raw(loc):
