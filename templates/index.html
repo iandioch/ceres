@@ -6,18 +6,6 @@
         <script src="https://unpkg.com/vue/dist/vue.js"></script>
         <link href="https://fonts.googleapis.com/css?family=Work+Sans:300" rel="stylesheet">
         <style type="text/css">
-            :root {
-                --colour_feature: #961c1c;
-                --colour_white: #e9e9e9;
-                --colour_true_white: #f9f9f9;
-                --colour_black: #1c1c1c;
-                --colour_alt: #961c1c;
-            }
-
-            html {
-                font-size: 20px;
-            }
-
             body {
                 background-color: #FFF; /*var(--colour_white);*/
                 color: var(--colour_black);
@@ -26,85 +14,12 @@
                 border: 0;
                 font-family: 'Work Sans', sans-serif;
                 overflow-x: hidden;
-                max-width: 40em;
                 margin: auto;
-                font-size: 1rem;
-            }
-
-            .b, a {
-                text-decoration: none;
-                color: var(--colour_feature);
-                font-family: 'Work Sans', sans-serif;
-                font-size: 1.1em;
-                font-weight: 600;
-            }
-
-            a:hover {
-                text-decoration: underline;
-            }
-
-            a:hover{
-                text-decoration: underline;
-            }
-
-            .header {
-                text-transform: uppercase;
-                font-family: 'Work Sans', sans-serif;
-                font-size: 4rem;
-                line-height: 1em;
-                margin: 0.5em 0;
-            }
-
-            .subheader {
-                color: var(--colour_alt);
-                font-family: 'Work Sans', sans-serif;
-                line-height: 0.9em;
-                padding-top: 2%;
-            }
-
-            .card {
-                width: 19em;
-                float: left;
-                margin-left: 2em;
-                font-size: 1rem;
-            }
-
-            .card:nth-child(odd) {
-                margin-left: 0;
-            }
-
-            #bottomdiv {
-                clear: both;
-                padding: 0;
-                padding-top: 1%;
-                padding-bottom: 5%;
+                font-size: 20px;
             }
         </style>
     </head>
     <body>
-        <br/>
-        <h1 class="header">who is noah</h1>
-            <p>My name is <span class="b">Noah Ó Donnaile</span> (or Noah Donnelly, iandioch, cac), and I am from Monaghan, Ireland.
-            <p>I am studying a <a href="http://cpssd.net" class="link b">BSc. in Computational Problem Solving and Software Development</a> at Dublin City University.</p>
-            <p>I like dogs, programming, dogs, languages (go háirithe an Ghaeilge), and dogs.</p>
-            <p>I'm looking for an internship; <a href="out/cv" class="link b">take a wee peek at my CV</a>. Read about my <a href="http://mycode.doesnot.run/tag/projects/" class="link b">recent projects</a> on <a href="http://mycode.doesnot.run" class="link b">my blog</a>, and subscribe to its <a href="http://mycode.doesnot.run/rss/" class="link b">RSS feed</a>.</p>
-        <div id="maindiv">
-            <h1 class="header">More Detail</h1>
-            <p>Here is cold hard data about me, coming at you live (Ajax-fetched and plugged into Vue.js):</p>
-
-            <div id="ceres_cards">
-                {% for card in cards %}
-                <div id="card_{{ card.name }}" class="card">
-                    {{ card.template }}
-                </div>
-                {% endfor %}
-            </div>
-        </div>
-        <div id="bottomdiv">
-            <h1 class="header">Contact</h1>
-            <p>Find me on <a href="https://twitter.com/iandioch">Twitter</a>, <a href="https://github.com/iandioch">Github</a>, or <a href="https://ie.linkedin.com/in/iandioch">LinkedIn</a>. I'm on <a href="https://keybase.io/iandioch">keybase</a>.</p>
-            <p>This website was made with Flask, Jinja2, Vue.js, and a pile of scrapers and scripts. Suggest changes at <a href="https://github.com/iandioch/ceres">its git repo</a>. It is eternally in a state of flux. Praise the free web xo</p>
-        </div>
         <style>
             #ceres {
                 display: grid;
