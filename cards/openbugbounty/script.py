@@ -15,10 +15,10 @@ def load_page(url):
 
 def get_data(page):
 	soup = BeautifulSoup(page, 'html.parser')
-	info = soup.find(class_=["reporter-info", "reporter-profile"])
+	for info in soup.find_all(class_=["reporter-info", "reporter-profile"]):
+		pass
 	data = {}
 	rows = info.find_all('tr')
-	
 	data['num_vulns'] = int(rows[0].find_all('td')[1].string)
 	data['num_vip'] = int(rows[1].find_all('td')[1].string)
 	data['num_top_vip_of_week'] = str(rows).count('images/stars/bronze-vip.png')
@@ -28,7 +28,7 @@ if __name__ == '__main__':
 	page = load_page('https://www.openbugbounty.org/researchers/iandioch/')
 	data = get_data(page)
 	json_data = json.dumps(data, indent=4)
-	with open('/home/waterloo/ceres/cards/openbugbounty/data.json', 'w') as filewriter:
+	with open('/home/noah/prog/ceres/cards/openbugbounty/data.json', 'w') as filewriter:
 		filewriter.write(json_data)
 		filewriter.write("\n")
 	print(json_data)
