@@ -141,6 +141,18 @@
             .links_box {
                 grid-area: top_links;
             }
+
+            .lastfm_box {
+                grid-area: lastfm;
+                background-color: #b90000;
+                color: #FFF;
+            }
+
+            .untappd_box {
+                grid-area: untappd;
+                background-color: #ffc000;
+                color: #FFF;
+            }
         </style>
         {% raw %}
         <div id="ceres">
@@ -156,6 +168,11 @@
             </div>
             <div class="box links_box">
                 <p>My name is Noah Ó Donnaile.</p>
+            </div>
+            <div class="box lastfm_box">
+                <p>My last played song was {{ lastfm.last_song_title }} by {{ lastfm.last_song_artist }} at {{ lastfm.last_song_date }}.
+            </div>
+            <div class="box untappd_box">
             </div>
         </div>
         {% endraw %}
