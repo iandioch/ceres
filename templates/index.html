@@ -8,7 +8,7 @@
         <style type="text/css">
             body {
                 background-color: #FFF; /*var(--colour_white);*/
-                color: var(--colour_black);
+                color: #000;
                 margin: 0;
                 padding: 0;
                 border: 0;
@@ -54,13 +54,29 @@
                 box-shadow: 5px 10px 0 0 var(--box-shadow-color);
                 padding: 10px;
                 padding-top: 5px;
+                padding-bottom: 5px;
                 text-align: left;
             }
 
             .minibox h1 {
                 text-align: left;
-                font-style: bold;
+                font-weight: bold;
                 line-height: 50%;
+            }
+
+            .minibox a {
+                font-weight: bold;
+                font-style: italic;
+                color: #fff;
+                text-decoration: none;
+            }
+
+            .minibox a:hover {
+                text-decoration: underline;
+            }
+
+            .highlight {
+                font-weight: bold;
             }
             
             .header_box {
@@ -139,18 +155,18 @@
             </div>
             <div class="minibox twitter_box">
                 <h1>Twitter</h1>
-                <p>What's up twitter</p>
+                <p>You can follow me on Twitter at <a href="https://twitter.com/iandioch">@iandioch</a>.</p>
             </div>
             <div class="minibox mastodon_box">
                 <h1>Mastodon</h1>
-                <p>Check out my account on mastodon.social</p>
+                <p>My Mastodon account is <a href="https://mastodon.social/@cac">@cac@mastodon.social</a></p>
             </div>
             <div class="box links_box">
                 <p>My name is Noah Ó Donnaile.</p>
             </div>
             <div class="minibox lastfm_box">
                 <h1>Last.fm</h1>
-                <p>My last played song was {{ lastfm.last_song_title }} by {{ lastfm.last_song_artist }} at {{ lastfm.last_song_date }}.
+                <p>My last played song was <span class="highlight">{{ lastfm.last_song_title }}</span> by <span class="highlight">{{ lastfm.last_song_artist }}</span> at {{ lastfm.last_song_date }}.<br>My most-played artists are <span class="highlight">{{ lastfm.top_artist0 }}</span> ({{ lastfm.top_artist0_plays }} plays) and <span class="highlight">{{ lastfm.top_artist1 }}</span> ({{ lastfm.top_artist1_plays }} plays).</p>
             </div>
             <div class="minibox untappd_box">
                 <h1>Untappd</h1>
@@ -161,7 +177,7 @@
             </div>
             <div class="minibox kattis_box">
                 <h1>Kattis</h1>
-                <p>I currently have a score of {{ kattis.score }} on the Kattis online judge.<br>I'm in {{ kattis.global_rank }} place globally, and {{ kattis.irish_rank }} in Ireland.<br>I've solved {{ kattis.num_lang0 }} problems in {{ kattis.lang0 }}, and {{ kattis.num_lang1 }} in {{ kattis.lang1 }}.</p>
+                <p>I'm in <span class="highlight">{{ kattis.global_rank }} place globally</span>, and <span class="highlight">{{ kattis.irish_rank }} in Ireland</span> on the Kattis online judge.<br>I've solved {{ kattis.num_lang0 }} problems in <span class="highlight">{{ kattis.lang0 }}</span>, and {{ kattis.num_lang1 }} in <span class="highlight">{{ kattis.lang1 }}</span>, and my total score is <span class="highlight">{{ kattis.score }}</span>.</p>
             </div>
             <div class="minibox euler_box">
                 <h1>Project Euler</h1>
@@ -172,7 +188,7 @@
             </div>
             <div class="minibox openbugbounty_box">
                 <h1>OpenBugBounty</h1>
-                <p>I have reported {{ openbugbounty.num_vulns }} XSS vulnerabilities on OpenBugBounty, of which {{ openbugbounty.num_vip }} were on top-50k sites. I was Top VIP Researcher of the week {{ openbugbounty.num_top_vip_of_week }}.</p>
+                <p>I have reported <span class="highlight">{{ openbugbounty.num_vulns }} XSS vulnerabilities</span> on OpenBugBounty, of which <span class="highlight">{{ openbugbounty.num_vip }}</span> were on top-50k sites. I was <span class="highlight">Top VIP Researcher of the Week {{ openbugbounty.num_top_vip_of_week }} times</span>.</p>
             </div>
         </div>
         {% endraw %}
