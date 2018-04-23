@@ -30,6 +30,7 @@ cards = {
     "kattis": create_card("kattis"),
     "lastfm": create_card("lastfm"),
     "blog": create_card("blog"),
+    "twitter": create_card("twitter"),
 }
 
 @app.route("/card/<string:name>")
