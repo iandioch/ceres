@@ -15,7 +15,7 @@
                 font-family: 'Work Sans', sans-serif;
                 overflow-x: hidden;
                 margin: auto;
-                font-size: 20px;
+                font-size: 1em;
             }
         </style>
     </head>
@@ -31,30 +31,37 @@
                     "lgap top_links lastfm untappd rgap"
                     "lgap comp_prog kattis euler rgap"
                     "lgap project openbugbounty gap rgap";
-                grid-column-gap: 30px;
-                grid-row-gap: 30px;
+                grid-column-gap: 20px;
+                grid-row-gap: 20px;
                 margin-bottom: 50px;
             }
 
             .box {
-                background-color: #EEE;
+                background-color: #FFEFF2;
                 color: #000;
-                box-shadow: 6px 10px 4px -4px #DDD;
+                --box-shadow-color: #E8DADC;
+                box-shadow: 5px 10px 0 0 var(--box-shadow-color);
                 padding: 10px;
             }
 
             .minibox {
                 color: #FFF;
-                box-shadow: 6px 10px 4px -4px #DDD;
+                /* Calculate the box-shadow-color by taking the background
+                * colour of the box, putting it into https://coolors.co,
+                * and taking the colour two steps darker in its "Alternative
+                * shades" there. */
+                --box-shadow-color: #DDD;
+                box-shadow: 5px 10px 0 0 var(--box-shadow-color);
                 padding: 10px;
                 text-align: center;
             }
             
             .header_box {
                 grid-area: header;
-                background-color: #000;
+                background-color: #222;
                 color: #FFF;
                 text-align: center;
+                --box-shadow-color: #000;
             }
 
             .blog_box {
@@ -64,11 +71,13 @@
             .twitter_box {
                 grid-area: tweet;
                 background-color: #0084b4;
+                --box-shadow-color: #006D94;
             }
 
             .mastodon_box {
                 grid-area: toot;
                 background-color: #393f4f;
+                --box-shadow-color: #2F3441;
             }
 
             .links_box {
@@ -78,11 +87,13 @@
             .lastfm_box {
                 grid-area: lastfm;
                 background-color: #b90000;
+                --box-shadow-color: #980000;
             }
 
             .untappd_box {
                 grid-area: untappd;
                 background-color: #ffc000;
+                --box-shadow-color: #D19E00;
             }
 
             .competition_box {
@@ -92,11 +103,13 @@
             .kattis_box {
                 grid-area: kattis;
                 background-color: #35BD40;
+                --box-shadow-color: #2C9B35;
             }
 
             .euler_box {
                 grid-area: euler;
                 background-color: #002b72;
+                --box-shadow-color: #00245E;
             }
 
             .project_box {
@@ -106,6 +119,7 @@
             .openbugbounty_box {
                 grid-area: openbugbounty;
                 background-color: #f77a00;
+                --box-shadow-color: #CB6400;
             }
         </style>
         {% raw %}
