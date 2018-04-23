@@ -13,8 +13,11 @@ if __name__ == '__main__':
 
     api = tweepy.API(auth)
 
-    public_tweets = api.home_timeline()
+    public_tweets = api.user_timeline(id='iandioch')
     for tweet in public_tweets:
         with open('data.json', 'w') as f:
-            f.write(json.dumps(tweet._json))
+            d = tweet._json
+            d['html'] = ' '.join(['<a href="{}">{}</a>'.format(s, s) if s[:4] == 'http' else s for s in tweet.text.split()])
+            d['url'] = 'https://twitter.com/iandioch/status/' + tweet.id_str
+            f.write(json.dumps(d, indent=4))
             break
