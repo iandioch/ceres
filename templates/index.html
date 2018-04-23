@@ -23,17 +23,72 @@
         <style>
             #ceres {
                 display: grid;
-                grid-template-columns: 0 2fr 1fr 1fr 0;
-                grid-template-rows: auto;
+                grid-template-columns: 0fr auto minmax(0, 2rem) 16rem 16rem 0fr;
+                grid-template-rows: 5rem repeat(4, 16rem auto);
                 grid-template-areas:
-                    "lgap header header header rgap"
-                    "lgap recent_blog tweet toot rgap"
-                    "lgap top_links lastfm untappd rgap"
-                    "lgap comp_prog kattis euler rgap"
-                    "lgap project openbugbounty gap rgap";
-                grid-column-gap: 20px;
-                grid-row-gap: 20px;
+                    "lgap header header header header rgap"
+                    "lgap recent_blog midgap tweet toot rgap"
+                    "lgap recent_blog midgap tweetgap tootgap rgap"
+                    "lgap top_links midgap lastfm untappd rgap"
+                    "lgap top_links midgap lastfmgap untappdgap rgap"
+                    "lgap comp_prog midgap kattis euler rgap"
+                    "lgap comp_prog midgap kattisgap eulergap rgap"
+                    "lgap project midgap openbugbounty gap rgap"
+                    "lgap project midgap openbugbountygap gap rgap";
+                grid-column-gap: 1.5rem;
+                grid-row-gap: 1.5rem;
                 margin-bottom: 50px;
+            }
+
+            @media only screen and (max-width: 1000px) {
+                #ceres {
+                        grid-template-columns: 0fr 1fr 1fr 0fr;
+                        grid-template-rows: auto;
+                        grid-template-areas:
+                            "lgap header header rgap"
+                            "lgap recent_blog recent_blog rgap"
+                            "lgap tweet toot rgap"
+                            "lgap top_links top_links rgap"
+                            "lgap lastfm untappd rgap"
+                            "lgap comp_prog comp_prog rgap"
+                            "lgap kattis euler rgap"
+                            "lgap project project rgap"
+                            "lgap openbugbounty gap rgap";
+                }
+            }
+
+            p {
+                margin: 0;
+                color: #000;
+            }
+
+            a {
+                font-weight: bold;
+                font-style: italic;
+                color: #444;
+                text-decoration: none;
+            }
+
+            a:hover {
+                text-decoration: underline;
+            }
+
+            h1 {
+                text-align: left;
+                font-weight: bold;
+                font-size: 2rem;
+                line-height: 100%;
+                margin: 0;
+                padding: 0;
+                margin-bottom: 1rem;
+            }
+
+            ul, li {
+                list-style-type: none;
+                margin: 0;
+                padding: 0;
+                margin-bottom: 1rem;
+                margin-top: 0.5rem;
             }
 
             .box {
@@ -41,7 +96,7 @@
                 color: #000;
                 --box-shadow-color: #E8DADC;
                 box-shadow: 5px 10px 0 0 var(--box-shadow-color);
-                padding: 10px;
+                padding: 1em;
             }
 
             .minibox {
@@ -52,16 +107,20 @@
                 * shades" there. */
                 --box-shadow-color: #DDD;
                 box-shadow: 5px 10px 0 0 var(--box-shadow-color);
-                padding: 10px;
-                padding-top: 5px;
-                padding-bottom: 5px;
+                padding: 1em;
                 text-align: left;
             }
 
-            .minibox h1 {
+            .minibox p {
+                color: #FFF;
+            }
+
+            .minibox ha1 {
                 text-align: left;
                 font-weight: bold;
-                line-height: 50%;
+                line-height: 100%;
+                margin-top: 5px;
+                margin-bottom: 5px;
             }
 
             .minibox a {
@@ -82,9 +141,15 @@
             .header_box {
                 grid-area: header;
                 background-color: #222;
-                color: #FFF;
-                text-align: center;
                 --box-shadow-color: #000;
+                font-size: 2rem;
+                font-weight: bold;
+                margin: 0;
+                padding: 1rem;
+            }
+
+            .header_box p {
+                color: #FFF;
             }
 
             .blog_box {
@@ -151,7 +216,12 @@
                 <p>Noah Ó Donnaile</p>
             </div>
             <div class="box blog_box">
-                <p>Recent blog posts go here.</p>
+                <h1>Latest blog posts</h1>
+                <ul>
+                    <li><a :href="blog[0].url">{{ blog[0].title }}</a> on {{ blog[0].date }}<br>{{ blog[0].intro }}...</li>
+                    <li><a :href="blog[1].url">{{ blog[1].title }}</a> on {{ blog[1].date }}<br>{{ blog[1].intro }}...</li>
+                    <li><a :href="blog[2].url">{{ blog[2].title }}</a> on {{ blog[2].date }}<br>{{ blog[2].intro }}...</li>
+                </ul>
             </div>
             <div class="minibox twitter_box">
                 <h1>Twitter</h1>
@@ -162,6 +232,7 @@
                 <p>My Mastodon account is <a href="https://mastodon.social/@cac">@cac@mastodon.social</a></p>
             </div>
             <div class="box links_box">
+                <h1>Links</h1>
                 <p>My name is Noah Ó Donnaile.</p>
             </div>
             <div class="minibox lastfm_box">
@@ -173,6 +244,7 @@
                 <p>View my Untappd profile here!</p>
             </div>
             <div class="box competition_box">
+                <h1>Competitive programming</h1>
                 <p>I do a lot of competitive programming.</p>
             </div>
             <div class="minibox kattis_box">
