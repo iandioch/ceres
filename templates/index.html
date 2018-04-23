@@ -53,7 +53,14 @@
                 --box-shadow-color: #DDD;
                 box-shadow: 5px 10px 0 0 var(--box-shadow-color);
                 padding: 10px;
-                text-align: center;
+                padding-top: 5px;
+                text-align: left;
+            }
+
+            .minibox h1 {
+                text-align: left;
+                font-style: bold;
+                line-height: 50%;
             }
             
             .header_box {
@@ -131,33 +138,40 @@
                 <p>Recent blog posts go here.</p>
             </div>
             <div class="minibox twitter_box">
+                <h1>Twitter</h1>
                 <p>What's up twitter</p>
             </div>
             <div class="minibox mastodon_box">
+                <h1>Mastodon</h1>
                 <p>Check out my account on mastodon.social</p>
             </div>
             <div class="box links_box">
                 <p>My name is Noah Ó Donnaile.</p>
             </div>
             <div class="minibox lastfm_box">
+                <h1>Last.fm</h1>
                 <p>My last played song was {{ lastfm.last_song_title }} by {{ lastfm.last_song_artist }} at {{ lastfm.last_song_date }}.
             </div>
             <div class="minibox untappd_box">
+                <h1>Untappd</h1>
                 <p>View my Untappd profile here!</p>
             </div>
             <div class="box competition_box">
                 <p>I do a lot of competitive programming.</p>
             </div>
             <div class="minibox kattis_box">
+                <h1>Kattis</h1>
                 <p>I currently have a score of {{ kattis.score }} on the Kattis online judge.<br>I'm in {{ kattis.global_rank }} place globally, and {{ kattis.irish_rank }} in Ireland.<br>I've solved {{ kattis.num_lang0 }} problems in {{ kattis.lang0 }}, and {{ kattis.num_lang1 }} in {{ kattis.lang1 }}.</p>
             </div>
             <div class="minibox euler_box">
+                <h1>Project Euler</h1>
                 <p>I am in the top 20 Project Euler users in Ireland, and the top 0.8% worldwide, with {{ euler.total_solved }} problems solved.</p>
             </div>
             <div class="box project_box">
 
             </div>
             <div class="minibox openbugbounty_box">
+                <h1>OpenBugBounty</h1>
                 <p>I have reported {{ openbugbounty.num_vulns }} XSS vulnerabilities on OpenBugBounty, of which {{ openbugbounty.num_vip }} were on top-50k sites. I was Top VIP Researcher of the week {{ openbugbounty.num_top_vip_of_week }}.</p>
             </div>
         </div>
