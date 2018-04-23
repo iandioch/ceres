@@ -29,6 +29,7 @@ cards = {
     "euler": create_card("euler"),
     "kattis": create_card("kattis"),
     "lastfm": create_card("lastfm"),
+    "blog": create_card("blog"),
 }
 
 @app.route("/card/<string:name>")
