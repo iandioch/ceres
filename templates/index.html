@@ -23,27 +23,27 @@
         <style>
             #ceres {
                 display: grid;
-                grid-template-columns: 0fr auto minmax(0, 2rem) 16rem 16rem 0fr;
+                grid-template-columns: 0fr minmax(0, 2rem) auto minmax(0, 8rem) 16rem 16rem 0fr;
                 grid-template-rows: 5rem repeat(4, 16rem auto);
                 grid-template-areas:
-                    "lgap header header header header rgap"
-                    "lgap recent_blog midgap tweet toot rgap"
-                    "lgap recent_blog midgap tweetgap tootgap rgap"
-                    "lgap top_links midgap lastfm untappd rgap"
-                    "lgap top_links midgap lastfmgap untappdgap rgap"
-                    "lgap comp_prog midgap kattis euler rgap"
-                    "lgap comp_prog midgap kattisgap eulergap rgap"
-                    "lgap project midgap openbugbounty gap rgap"
-                    "lgap project midgap openbugbountygap gap rgap";
+                    "lgap header header header header header rgap"
+                    "lgap llgap recent_blog midgap tweet toot rgap"
+                    "lgap llgap recent_blog midgap tweetgap tootgap rgap"
+                    "lgap llgap top_links midgap lastfm untappd rgap"
+                    "lgap llgap top_links midgap lastfmgap untappdgap rgap"
+                    "lgap llgap comp_prog midgap kattis euler rgap"
+                    "lgap llgap comp_prog midgap kattisgap eulergap rgap"
+                    "lgap llgap project midgap openbugbounty gap rgap"
+                    "lgap llgap project midgap openbugbountygap gap rgap";
                 grid-column-gap: 1.5rem;
                 grid-row-gap: 1.5rem;
                 margin-bottom: 50px;
             }
 
-            @media only screen and (max-width: 1000px) {
+            @media only screen and (max-width: 1279px) {
                 #ceres {
                         grid-template-columns: 0fr 1fr 1fr 0fr;
-                        grid-template-rows: auto;
+                        grid-template-rows: 5rem repeat(8, auto);
                         grid-template-areas:
                             "lgap header header rgap"
                             "lgap recent_blog recent_blog rgap"
@@ -234,11 +234,19 @@
             </div>
             <div class="box links_box">
                 <h1>Links</h1>
-                <p>My name is Noah Ó Donnaile.</p>
+                <p>My name is Noah Ó Donnaile (or Noah Donnelly, iandioch, cac), and I am a student and software developer from Monaghan, Ireland.</p>
+                <p>I enjoy competitive programming, dogs, languages, and dogs. <a href="http://noah.needs.money/out/cv">Check out my CV</a></p>.
+                <p>Find me on:</p>
+                <ul>
+                    <li><a href="https://github.com/iandioch">Github</a></li>
+                    <li><a href="https://ie.linkedin.com/in/iandioch">LinkedIn</a></li>
+                    <li><a href="https://keybase.io/iandioch">Keybase</a></li>
+                </ul>
+                <p>Subscribe to <a href="http://mycode.doesnot.run/rss/">my blog's RSS feed</a>!</p>
             </div>
             <div class="minibox lastfm_box">
                 <h1>Last.fm</h1>
-                <p>My last played song was <span class="highlight">{{ lastfm.last_song_title }}</span> by <span class="highlight">{{ lastfm.last_song_artist }}</span> at {{ lastfm.last_song_date }}.<br>My most-played artists are <span class="highlight">{{ lastfm.top_artist0 }}</span> ({{ lastfm.top_artist0_plays }} plays) and <span class="highlight">{{ lastfm.top_artist1 }}</span> ({{ lastfm.top_artist1_plays }} plays).</p>
+                <p>My last played song was <span class="highlight">{{ lastfm.last_song_title }}</span> by <span class="highlight">{{ lastfm.last_song_artist }}</span> at {{ lastfm.last_song_date }}.<br>My most-played artists are <span class="highlight">{{ lastfm.top_artist0 }}</span> ({{ lastfm.top_artist0_plays }} plays) and <span class="highlight">{{ lastfm.top_artist1 }}</span> ({{ lastfm.top_artist1_plays }} plays). <a href="https://last.fm/user/iandioch">See my profile here</a>.</p>
             </div>
             <div class="minibox untappd_box">
                 <h1>Untappd</h1>
@@ -254,7 +262,8 @@
             </div>
             <div class="minibox euler_box">
                 <h1>Project Euler</h1>
-                <p>I am in the top 20 Project Euler users in Ireland, and the top 0.8% worldwide, with {{ euler.total_solved }} problems solved.</p>
+                <p>I am in the top 20 Project Euler users in Ireland, and the <span class="highlight">top 0.8% worldwide</span>, with <span class="highlight">{{ euler.total_solved }} problems</span> solved.</p>
+                <p>Most of the {{ euler.num_solutions }} solutions I saved are in <span class="highlight">{{ euler.lang0 }}</span> ({{ euler.num_lang0 }}) and <span class="highlight">{{ euler.lang1 }}</span> ({{ euler.num_lang1 }}).</p>
             </div>
             <div class="box project_box">
 
