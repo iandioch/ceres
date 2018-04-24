@@ -31,6 +31,7 @@ cards = {
     "lastfm": create_card("lastfm"),
     "blog": create_card("blog"),
     "twitter": create_card("twitter"),
+    "untappd": create_card("untappd"),
 }
 
 @app.route("/card/<string:name>")
