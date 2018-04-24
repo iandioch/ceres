@@ -250,7 +250,8 @@
             </div>
             <div class="minibox untappd_box">
                 <h1>Untappd</h1>
-                <p>View my Untappd profile here!</p>
+                <p>The latest beer I checked in on Untappd was <a :href="'https://untappd.com/beer/' + untappd.latest.beer.bid">{{ untappd.latest.beer.beer_name }}</a>, a {{ untappd.latest.beer.beer_style }} by <a :href="'https://untappd.com/brewery/' + untappd.latest.brewery.brewery_id">{{ untappd.latest.brewery.brewery_name }}</a> in {{ untappd.latest.brewery.country_name }}.</p>
+                <p>Overall, I have checked in {{ untappd.user.stats.total_checkins }} beers (<span class="highlight">{{ untappd.user.stats.total_beers}} unique!</span>), and have earned <span class="highlight">{{ untappd.user.stats.total_badges }} badges</span>.<a href="https://untappd.com/user/iandioch">View my Untappd profile here!</a></p>
             </div>
             <div class="box competition_box">
                 <h1>Competitive programming</h1>
