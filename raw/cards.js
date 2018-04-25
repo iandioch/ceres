@@ -69,29 +69,7 @@ function updateCardData(cardName, cardData) {
 	});
 }
 
-/*
-var cardList = document.getElementById('ceres_cards').children;
-var cardData = {};
-
-for(var i = 0; i < cardList.length; i ++) {
-	var id = cardList[i].id;
-	var name = id.substring(id.indexOf("_") + 1);
-	loadCardPage(name, function(cardName, err, data){
-		cardCallback(cardName, err, data);
-		createCardVue(cardName, cardData);
-	});
-    console.log("card data");
-    console.log(cardData);
-}
-
-var updateAll = function() {
-	console.log("Updating");
-	for(var key in cardData) {
-		updateCardData(key, cardData);
-	}
-}*/
-// Run updateAll every 60 seconds
-//window.setInterval(updateAll, 60000);
-window.setInterval(updateCeres, 3000);
+// Run updateAll every 30 seconds
+window.setInterval(updateCeres, 30000);
 updateCeres();
 console.log("interval set.");
