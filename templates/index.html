@@ -189,6 +189,10 @@
                 grid-area: comp_prog;
             }
 
+            .competition_box li {
+                margin: 0;
+            }
+
             .kattis_box {
                 grid-area: kattis;
                 background-color: #35BD40;
@@ -251,7 +255,24 @@
             </div>
             <div class="box competition_box">
                 <h1>Competitions &amp; Awards</h1>
-                <p>I do a lot of competitive programming.</p>
+                <ul>
+                    <li><span class="highlight">Student Battle Dev Season 11</span>: Solo. <a href="http://mycode.doesnot.run/2018/03/28/student-battle-dev-season-11/">41st place</a> out of 3322.</li>
+                    <li><span class="highlight">IrlCPC 2018</span>: Team of 3. <a href="http://mycode.doesnot.run/2018/03/11/irlcpc-2018/">1st place</a>.</li>
+                    <li><span class="highlight">NWERC 2017</span>: Team of 3. <a href="http://www.computing.dcu.ie/news/dcu-computing-teams-compete-european-stage">1st in Ireland, 47th overall</a> out of 120.</li>
+                    <li><span class="highlight">UKIEPC 2017</span>: Team of 3. <a href="http://www.computing.dcu.ie/news/dcu-clinch-top-3-spots-irish-end-ukiepc-2017">3rd in Ireland, 32nd overall</a> out of 195.</li>
+                    <li><span class="highlight">IrlCPC 2017</span>: Team of 3. <a href="http://mycode.doesnot.run/2017/04/03/irlcpc-2017/">3rd place</a>.</li>
+                    <li><span class="highlight">Google Hash Code 2017</span>: Team of 2. <a href="http://mycode.doesnot.run/2018/01/04/hashcode-2017/">1st in Ireland, 164th globally</a>.<li>
+                    <li><span class="highlight">NWERC 2016</span>: Team of 2. 2nd Irish team, 78th overall.</li>
+                    <li><span class="highlight">UKIEPC 2016</span>: Team of 3. <a href="http://www.computing.dcu.ie/news/2016-ukiepc-programming-competition-dcu">7th Irish team, 60th overall</a>.</li>
+                    <li><span class="highlight">IrlCPC 2016</span>: Team of 3. <span href="http://computing.dcu.ie/news/cpssd-teams-take-top-2-spots-irlcpc-2016">2nd place</span>.</li>
+                    <li><span class="highlight">Google Hash Code 2016</span>: Team of 3. <a href="http://mycode.doesnot.run/2016/02/15/hashcode/">2nd in Ireland, 120th globally</a>.</li>
+                    <li><span class="highlight">NWERC 2015</span>: Team of 3. 1st in Ireland, 74th overall.</li>
+                    <li><span class="highlight">UKIEPC 2015</span>: Team of 3. <a href="http://www.computing.dcu.ie/news/dcu-and-trinity-go-head-head-ukiepc">4th in Ireland, 42nd overall</a>.</li>
+                    <li><span class="highlight">International Olympiad in Informatics 2015</span>: On Irish team.</li>
+                </ul>
+                <ul>
+                    <li>Our project <a href="https://safer.place">safer.place</a> was <a href="https://www.dcu.ie/news/2017/apr/s0417t.shtml">nominated for the DCU President's Prize for Innovation 2017</a>.</li>
+                </ul>
             </div>
             <div class="minibox kattis_box">
                 <h1>Kattis</h1>
@@ -263,7 +284,15 @@
                 <p>Most of the {{ euler.num_solutions }} solutions I saved are in <span class="highlight">{{ euler.lang0 }}</span> ({{ euler.num_lang0 }}) and <span class="highlight">{{ euler.lang1 }}</span> ({{ euler.num_lang1 }}).</p>
             </div>
             <div class="box project_box">
-
+                <h1>Projects</h1>
+                <ul>
+                    <li><a href="https://safer.place">safer.place</a> - HackYourWayDay 2017 Hackathon<br>
+                    safer.place is a website to estimate an Irish address’ safety based on government-provided crime data.</li>
+                    <li><span class="highlight">Dipla</span> - 2nd Year University Project<br>
+                    An RPC and distributed computing framework for Python 3.5+.</li>
+                    <li><a href="https://cpssd.net/feedlark">Feedlark</a> - 1st Year University Project<br>
+                    Feedlark is a web-based RSS aggregator that promotes items matching topics the user previously liked.</li>
+                </ul>
             </div>
             <div class="minibox openbugbounty_box">
                 <h1>OpenBugBounty</h1>
