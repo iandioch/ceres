@@ -23,8 +23,8 @@
         <style>
             #ceres {
                 display: grid;
-                grid-template-columns: 0fr minmax(0, 2rem) auto minmax(0, 8rem) 16rem 16rem 0fr;
-                grid-template-rows: 5rem repeat(4, 16rem auto);
+                grid-template-columns: 0fr 1fr minmax(40rem, 60rem) 3fr 16rem 16rem 0fr;
+                grid-template-rows: 5rem repeat(4, minmax(16rem, max-content) auto);
                 grid-template-areas:
                     "lgap header header header header header rgap"
                     "lgap llgap recent_blog midgap tweet toot rgap"
@@ -60,6 +60,7 @@
             p {
                 margin: 0;
                 color: #000;
+                margin-top: 1em;
             }
 
             a {
@@ -76,7 +77,7 @@
             h1 {
                 text-align: left;
                 font-weight: bold;
-                font-size: 2rem;
+                font-size: 1.6rem;
                 line-height: 100%;
                 margin: 0;
                 padding: 0;
@@ -235,18 +236,13 @@
             <div class="box links_box">
                 <h1>Links</h1>
                 <p>My name is Noah Ó Donnaile (or Noah Donnelly, iandioch, cac), and I am a student and software developer from Monaghan, Ireland.</p>
-                <p>I enjoy competitive programming, dogs, languages, and dogs. <a href="http://noah.needs.money/out/cv">Check out my CV</a></p>.
-                <p>Find me on:</p>
-                <ul>
-                    <li><a href="https://github.com/iandioch">Github</a></li>
-                    <li><a href="https://ie.linkedin.com/in/iandioch">LinkedIn</a></li>
-                    <li><a href="https://keybase.io/iandioch">Keybase</a></li>
-                </ul>
-                <p>Subscribe to <a href="http://mycode.doesnot.run/rss/">my blog's RSS feed</a>!</p>
+                <p>I enjoy programming, dogs, languages, music, dogs, travelling, and dogs. <a href="http://noah.needs.money/out/cv">Check out my CV</a>.</p>
+                <p>Find me on: <a href="https://github.com/iandioch">Github</a>, <a href="https://ie.linkedin.com/in/iandioch">LinkedIn</a>, <a href="https://keybase.io/iandioch">Keybase</a>.</p>
+                <p>Subscribe to <a href="http://mycode.doesnot.run/rss/">my blog's RSS feed</a>.</p>
             </div>
             <div class="minibox lastfm_box">
                 <h1>Last.fm</h1>
-                <p>My last played song was <span class="highlight">{{ lastfm.last_song_title }}</span> by <span class="highlight">{{ lastfm.last_song_artist }}</span> at {{ lastfm.last_song_date }}.<br>My most-played artists are <span class="highlight">{{ lastfm.top_artist0 }}</span> ({{ lastfm.top_artist0_plays }} plays) and <span class="highlight">{{ lastfm.top_artist1 }}</span> ({{ lastfm.top_artist1_plays }} plays). <a href="https://last.fm/user/iandioch">See my profile here</a>.</p>
+                <p>My last played song was <span class="highlight">{{ lastfm.last_song_title }}</span> by <span class="highlight">{{ lastfm.last_song_artist }}</span> at {{ lastfm.last_song_date }}.</p><p>My most-played artists are <span class="highlight">{{ lastfm.top_artist0 }}</span> ({{ lastfm.top_artist0_plays }} plays) and <span class="highlight">{{ lastfm.top_artist1 }}</span> ({{ lastfm.top_artist1_plays }} plays). <a href="https://last.fm/user/iandioch">See my profile here</a>.</p>
             </div>
             <div class="minibox untappd_box">
                 <h1>Untappd</h1>
@@ -254,12 +250,12 @@
                 <p>Overall, I have checked in {{ untappd.user.stats.total_checkins }} beers (<span class="highlight">{{ untappd.user.stats.total_beers}} unique!</span>), and have earned <span class="highlight">{{ untappd.user.stats.total_badges }} badges</span>.<a href="https://untappd.com/user/iandioch">View my Untappd profile here!</a></p>
             </div>
             <div class="box competition_box">
-                <h1>Competitive programming</h1>
+                <h1>Competitions &amp; Awards</h1>
                 <p>I do a lot of competitive programming.</p>
             </div>
             <div class="minibox kattis_box">
                 <h1>Kattis</h1>
-                <p>I'm in <span class="highlight">{{ kattis.global_rank }} place globally</span>, and <span class="highlight">{{ kattis.irish_rank }} in Ireland</span> on the Kattis online judge.<br>I've solved {{ kattis.num_lang0 }} problems in <span class="highlight">{{ kattis.lang0 }}</span>, and {{ kattis.num_lang1 }} in <span class="highlight">{{ kattis.lang1 }}</span>, and my total score is <span class="highlight">{{ kattis.score }}</span>.</p>
+                <p>I'm in <span class="highlight">{{ kattis.global_rank }} place globally</span>, and <span class="highlight">{{ kattis.irish_rank }} in Ireland</span> on the Kattis online judge.</p><p>I've solved {{ kattis.num_lang0 }} problems in <span class="highlight">{{ kattis.lang0 }}</span>, and {{ kattis.num_lang1 }} in <span class="highlight">{{ kattis.lang1 }}</span>, and my total score is <span class="highlight">{{ kattis.score }}</span>.</p><p><a href="https://open.kattis.com/users/iandioch">View my profile</a>.</p>
             </div>
             <div class="minibox euler_box">
                 <h1>Project Euler</h1>
