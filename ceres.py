@@ -22,7 +22,7 @@ def render_template(name, d):
     return template.render(d)
 
 def create_card(name):
-    return Card(name, "cards/" + name + "/template.html", "cards/" + name + "/data.json")
+    return Card(name, "cards/" + name + "/data.json")
 
 cards = {
     "openbugbounty": create_card("openbugbounty"),
