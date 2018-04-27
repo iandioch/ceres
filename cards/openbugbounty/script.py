@@ -15,10 +15,10 @@ def load_page(url):
 
 def get_data(page):
 	soup = BeautifulSoup(page, 'html.parser')
-	info = soup.find(class_=["reporter-info", "reporter-profile"])
+	for info in soup.find_all(class_=["reporter-info", "reporter-profile"]):
+		pass
 	data = {}
 	rows = info.find_all('tr')
-	
 	data['num_vulns'] = int(rows[0].find_all('td')[1].string)
 	data['num_vip'] = int(rows[1].find_all('td')[1].string)
 	data['num_top_vip_of_week'] = str(rows).count('images/stars/bronze-vip.png')

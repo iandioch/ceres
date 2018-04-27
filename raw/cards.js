@@ -1,3 +1,32 @@
+function loadURL(url, callback) {
+    var xhr = new XMLHttpRequest();
+    xhr.open("get", url, true);
+    xhr.onload = function() {
+        var status = xhr.status;
+        if (status == 200) callback(null, xhr.response);
+        else callback(status);
+    };
+    xhr.send();
+}
+
+function onUpdateCeres(err, data) {
+    if (err != null) {
+        alert(err);
+        return;
+    }
+    json = JSON.parse(data);
+    console.log(json);
+    new Vue({
+        el: "#ceres",
+        data: json,
+    });
+}
+
+function updateCeres() {
+    console.log("updateCeres()");
+    loadURL("/cards", onUpdateCeres);
+}
+
 function loadCardPage(cardName, callback){
 	var xhr = new XMLHttpRequest();
 	xhr.open("get", "card/" + cardName, true);
@@ -40,23 +69,7 @@ function updateCardData(cardName, cardData) {
 	});
 }
 
-var cardList = document.getElementById('ceres_cards').children;
-var cardData = {};
-
-for(var i = 0; i < cardList.length; i ++) {
-	var id = cardList[i].id;
-	var name = id.substring(id.indexOf("_") + 1);
-	loadCardPage(name, function(cardName, err, data){
-		cardCallback(cardName, err, data);
-		createCardVue(cardName, cardData);
-	});
-}
-
-var updateAll = function() {
-	console.log("Updating");
-	for(var key in cardData) {
-		updateCardData(key, cardData);
-	}
-}
-// Run updateAll every 60 seconds
-window.setInterval(updateAll, 60000);
+// Run updateAll every 30 seconds
+window.setInterval(updateCeres, 30000);
+updateCeres();
+console.log("interval set.");

@@ -1,110 +1,307 @@
 <!doctype html>
 <html>
-	<head>
-		<meta charset="utf-8">
-		<title>Noah Ó Donnaile</title>
-		<script src="https://unpkg.com/vue/dist/vue.js"></script>
-		<link href="https://fonts.googleapis.com/css?family=Work+Sans:300" rel="stylesheet">
+    <head>
+        <meta charset="utf-8">
+        <title>Noah Ó Donnaile</title>
+        <script src="https://unpkg.com/vue/dist/vue.js"></script>
+        <link href="https://fonts.googleapis.com/css?family=Work+Sans:300" rel="stylesheet">
         <style type="text/css">
-            :root {
-                --colour_feature: #961c1c;
-                --colour_white: #e9e9e9;
-                --colour_true_white: #f9f9f9;
-                --colour_black: #1c1c1c;
-                --colour_alt: #961c1c;
-            }
-
-	    html {
-		font-size: 20px;
-	    }
-
             body {
-                background-color: var(--colour_white);
-                color: var(--colour_black);
+                background-color: #FFF; /*var(--colour_white);*/
+                color: #000;
                 margin: 0;
                 padding: 0;
                 border: 0;
                 font-family: 'Work Sans', sans-serif;
                 overflow-x: hidden;
-		max-width: 40em;
-		margin: auto;
-		font-size: 1rem;
+                margin: auto;
+                font-size: 1em;
+            }
+        </style>
+    </head>
+    <body>
+        <style>
+            #ceres {
+                display: grid;
+                grid-template-columns: 0fr 1fr minmax(40rem, 60rem) 3fr 16rem 16rem 0fr;
+                grid-template-rows: 5rem repeat(4, minmax(16rem, max-content) auto);
+                grid-template-areas:
+                    "lgap header header header header header rgap"
+                    "lgap llgap recent_blog midgap tweet toot rgap"
+                    "lgap llgap recent_blog midgap tweetgap tootgap rgap"
+                    "lgap llgap top_links midgap lastfm untappd rgap"
+                    "lgap llgap top_links midgap lastfmgap untappdgap rgap"
+                    "lgap llgap comp_prog midgap kattis euler rgap"
+                    "lgap llgap comp_prog midgap kattisgap eulergap rgap"
+                    "lgap llgap project midgap openbugbounty gap rgap"
+                    "lgap llgap project midgap openbugbountygap gap rgap";
+                grid-column-gap: 1.5rem;
+                grid-row-gap: 1.5rem;
+                margin-bottom: 50px;
             }
 
-            .b, a {
+            @media only screen and (max-width: 1279px) {
+                #ceres {
+                        grid-template-columns: 0fr 1fr 1fr 0fr;
+                        grid-template-rows: 5rem repeat(8, auto);
+                        grid-template-areas:
+                            "lgap header header rgap"
+                            "lgap recent_blog recent_blog rgap"
+                            "lgap tweet toot rgap"
+                            "lgap top_links top_links rgap"
+                            "lgap lastfm untappd rgap"
+                            "lgap comp_prog comp_prog rgap"
+                            "lgap kattis euler rgap"
+                            "lgap project project rgap"
+                            "lgap openbugbounty gap rgap";
+                }
+            }
+
+            p {
+                margin: 0;
+                color: #000;
+                margin-top: 1em;
+            }
+
+            a {
+                font-weight: bold;
+                font-style: italic;
+                color: #444;
                 text-decoration: none;
-		color: var(--colour_feature);
-                font-family: 'Work Sans', sans-serif;
-                font-size: 1.1em;
-                font-weight: 600;
             }
 
             a:hover {
                 text-decoration: underline;
             }
 
-            a:hover{
+            h1 {
+                text-align: left;
+                font-weight: bold;
+                font-size: 1.6rem;
+                line-height: 100%;
+                margin: 0;
+                padding: 0;
+                margin-bottom: 1rem;
+            }
+
+            ul, li {
+                list-style-type: none;
+                margin: 0;
+                padding: 0;
+                margin-bottom: 1rem;
+                margin-top: 0.5rem;
+            }
+
+            .box {
+                background-color: #FFEFF2;
+                color: #000;
+                --box-shadow-color: #E8DADC;
+                box-shadow: 5px 10px 0 0 var(--box-shadow-color);
+                padding: 1em;
+            }
+
+            .minibox {
+                color: #FFF;
+                /* Calculate the box-shadow-color by taking the background
+                * colour of the box, putting it into https://coolors.co,
+                * and taking the colour two steps darker in its "Alternative
+                * shades" there. */
+                --box-shadow-color: #DDD;
+                box-shadow: 5px 10px 0 0 var(--box-shadow-color);
+                padding: 1em;
+                text-align: left;
+            }
+
+            .minibox p {
+                color: #FFF;
+            }
+
+            .minibox ha1 {
+                text-align: left;
+                font-weight: bold;
+                line-height: 100%;
+                margin-top: 5px;
+                margin-bottom: 5px;
+            }
+
+            .minibox a {
+                font-weight: bold;
+                font-style: italic;
+                color: #fff;
+                text-decoration: none;
+            }
+
+            .minibox a:hover {
                 text-decoration: underline;
             }
 
-            .header {
-                text-transform: uppercase;
-                font-family: 'Work Sans', sans-serif;
-                font-size: 4rem;
-                line-height: 1em;
-                margin: 0.5em 0;
+            .highlight {
+                font-weight: bold;
+            }
+            
+            .header_box {
+                grid-area: header;
+                background-color: #222;
+                --box-shadow-color: #000;
+                font-size: 2rem;
+                font-weight: bold;
+                margin: 0;
+                padding: 1rem;
             }
 
-            .subheader {
-                color: var(--colour_alt);
-                font-family: 'Work Sans', sans-serif;
-                line-height: 0.9em;
-                padding-top: 2%;
+            .header_box p {
+                color: #FFF;
             }
 
-	    .card {
-		width: 19em;
-		float: left;
-		margin-left: 2em;
-		font-size: 1rem;
-	    }
+            .blog_box {
+                grid-area: recent_blog;
+            }
+            
+            .twitter_box {
+                grid-area: tweet;
+                background-color: #0084b4;
+                --box-shadow-color: #006D94;
+            }
 
-	    .card:nth-child(odd) {
-		margin-left: 0;
-	    }
+            .mastodon_box {
+                grid-area: toot;
+                background-color: #393f4f;
+                --box-shadow-color: #2F3441;
+            }
 
-	    #bottomdiv {
-		clear: both;
-		padding: 0;
-		padding-top: 1%;
-		padding-bottom: 5%;
-	    }
+            .links_box {
+                grid-area: top_links;
+            }
+
+            .lastfm_box {
+                grid-area: lastfm;
+                background-color: #b90000;
+                --box-shadow-color: #980000;
+            }
+
+            .untappd_box {
+                grid-area: untappd;
+                background-color: #ffc000;
+                --box-shadow-color: #D19E00;
+            }
+
+            .competition_box {
+                grid-area: comp_prog;
+            }
+
+            .competition_box li {
+                margin: 0;
+            }
+
+            .kattis_box {
+                grid-area: kattis;
+                background-color: #35BD40;
+                --box-shadow-color: #2C9B35;
+            }
+
+            .euler_box {
+                grid-area: euler;
+                background-color: #002b72;
+                --box-shadow-color: #00245E;
+            }
+
+            .project_box {
+                grid-area: project;
+            }
+
+            .openbugbounty_box {
+                grid-area: openbugbounty;
+                background-color: #f77a00;
+                --box-shadow-color: #CB6400;
+            }
         </style>
-	</head>
-    <body>
-            <br/>
-	    <h1 class="header">who is noah</h1>
-            <p>My name is <span class="b">Noah Ó Donnaile</span> (or Noah Donnelly, iandioch, cac), and I am from Monaghan, Ireland.
-            <p>I am studying a <a href="http://cpssd.net" class="link b">BSc. in Computational Problem Solving and Software Development</a> at Dublin City University.</p>
-            <p>I like dogs, programming, dogs, languages (go háirithe an Ghaeilge), and dogs.</p>
-            <p>I'm looking for an internship; <a href="out/cv" class="link b">take a wee peek at my CV</a>. Read about my <a href="http://mycode.doesnot.run/tag/projects/" class="link b">recent projects</a> on <a href="http://mycode.doesnot.run" class="link b">my blog</a>, and subscribe to its <a href="http://mycode.doesnot.run/rss/" class="link b">RSS feed</a>.</p>
-		<div id="maindiv">
-			<h1 class="header">More Detail</h1>
-			<p>Here is cold hard data about me, coming at you live (Ajax-fetched and plugged into Vue.js):</p>
-
-			<div id="ceres_cards">
-				{% for card in cards %}
-				<div id="card_{{ card.name }}" class="card">
-					{{ card.template }}
-				</div>
-				{% endfor %}
-			</div>
-		</div>
-		<div id="bottomdiv">
-			<h1 class="header">Contact</h1>
-            <p>Find me on <a href="https://twitter.com/iandioch">Twitter</a>, <a href="https://github.com/iandioch">Github</a>, or <a href="https://ie.linkedin.com/in/iandioch">LinkedIn</a>. I'm on <a href="https://keybase.io/iandioch">keybase</a>.</p>
-			<p>This website was made with Flask, Jinja2, Vue.js, and a pile of scrapers and scripts. Suggest changes at <a href="https://github.com/iandioch/ceres">its git repo</a>. It is eternally in a state of flux. Praise the free web xo</p>
-		</div>
-		<script src="./cards.js"></script>
-	</body>
+        {% raw %}
+        <div id="ceres">
+            <div class="box header_box">
+                <p>Noah Ó Donnaile</p>
+            </div>
+            <div class="box blog_box">
+                <h1>Latest blog posts</h1>
+                <ul>
+                    <li><a :href="blog[0].url">{{ blog[0].title }}</a> on {{ blog[0].date }}<br>{{ blog[0].intro }}...</li>
+                    <li><a :href="blog[1].url">{{ blog[1].title }}</a> on {{ blog[1].date }}<br>{{ blog[1].intro }}...</li>
+                    <li><a :href="blog[2].url">{{ blog[2].title }}</a> on {{ blog[2].date }}<br>{{ blog[2].intro }}...</li>
+                </ul>
+            </div>
+            <div class="minibox twitter_box">
+                <h1>Twitter</h1>
+                <p>You can follow me on Twitter at <a href="https://twitter.com/iandioch">@iandioch</a>. My <a :href="twitter.url">latest tweet</a> was:</p>
+                <p>{{twitter.html}}</p>
+            </div>
+            <div class="minibox mastodon_box">
+                <h1>Mastodon</h1>
+                <p>My Mastodon account is <a href="https://mastodon.social/@cac">@cac@mastodon.social</a></p>
+            </div>
+            <div class="box links_box">
+                <h1>Links</h1>
+                <p>My name is Noah Ó Donnaile (or Noah Donnelly, iandioch, cac), and I am a student and software developer from Monaghan, Ireland.</p>
+                <p>I enjoy programming, dogs, languages, music, dogs, travelling, and dogs. <a href="http://noah.needs.money/out/cv">Check out my CV</a>.</p>
+                <p>Find me on: <a href="https://github.com/iandioch">Github</a>, <a href="https://ie.linkedin.com/in/iandioch">LinkedIn</a>, <a href="https://keybase.io/iandioch">Keybase</a>.</p>
+                <p>Subscribe to <a href="http://mycode.doesnot.run/rss/">my blog's RSS feed</a>.</p>
+            </div>
+            <div class="minibox lastfm_box">
+                <h1>Last.fm</h1>
+                <p>My last played song was <span class="highlight">{{ lastfm.last_song_title }}</span> by <span class="highlight">{{ lastfm.last_song_artist }}</span> at {{ lastfm.last_song_date }}.</p><p>My most-played artists are <span class="highlight">{{ lastfm.top_artist0 }}</span> ({{ lastfm.top_artist0_plays }} plays) and <span class="highlight">{{ lastfm.top_artist1 }}</span> ({{ lastfm.top_artist1_plays }} plays). <a href="https://last.fm/user/iandioch">See my profile here</a>.</p>
+            </div>
+            <div class="minibox untappd_box">
+                <h1>Untappd</h1>
+                <p>The latest beer I checked in on Untappd was <a :href="'https://untappd.com/beer/' + untappd.latest.beer.bid">{{ untappd.latest.beer.beer_name }}</a>, a {{ untappd.latest.beer.beer_style }} by <a :href="'https://untappd.com/brewery/' + untappd.latest.brewery.brewery_id">{{ untappd.latest.brewery.brewery_name }}</a> in {{ untappd.latest.brewery.country_name }}.</p>
+                <p>Overall, I have checked in {{ untappd.user.stats.total_checkins }} beers (<span class="highlight">{{ untappd.user.stats.total_beers}} unique!</span>), and have earned <span class="highlight">{{ untappd.user.stats.total_badges }} badges</span>.<a href="https://untappd.com/user/iandioch">View my Untappd profile here!</a></p>
+            </div>
+            <div class="box competition_box">
+                <h1>Competitions &amp; Awards</h1>
+                <ul>
+                    <li><span class="highlight">Student Battle Dev Season 11</span>: Solo. <a href="http://mycode.doesnot.run/2018/03/28/student-battle-dev-season-11/">41st place</a> out of 3322.</li>
+                    <li><span class="highlight">IrlCPC 2018</span>: Team of 3. <a href="http://mycode.doesnot.run/2018/03/11/irlcpc-2018/">1st place</a>.</li>
+                    <li><span class="highlight">NWERC 2017</span>: Team of 3. <a href="http://www.computing.dcu.ie/news/dcu-computing-teams-compete-european-stage">1st in Ireland, 47th overall</a> out of 120.</li>
+                    <li><span class="highlight">UKIEPC 2017</span>: Team of 3. <a href="http://www.computing.dcu.ie/news/dcu-clinch-top-3-spots-irish-end-ukiepc-2017">3rd in Ireland, 32nd overall</a> out of 195.</li>
+                    <li><span class="highlight">IrlCPC 2017</span>: Team of 3. <a href="http://mycode.doesnot.run/2017/04/03/irlcpc-2017/">3rd place</a>.</li>
+                    <li><span class="highlight">Google Hash Code 2017</span>: Team of 2. <a href="http://mycode.doesnot.run/2018/01/04/hashcode-2017/">1st in Ireland, 164th globally</a>.<li>
+                    <li><span class="highlight">NWERC 2016</span>: Team of 2. 2nd Irish team, 78th overall.</li>
+                    <li><span class="highlight">UKIEPC 2016</span>: Team of 3. <a href="http://www.computing.dcu.ie/news/2016-ukiepc-programming-competition-dcu">7th Irish team, 60th overall</a>.</li>
+                    <li><span class="highlight">IrlCPC 2016</span>: Team of 3. <span href="http://computing.dcu.ie/news/cpssd-teams-take-top-2-spots-irlcpc-2016">2nd place</span>.</li>
+                    <li><span class="highlight">Google Hash Code 2016</span>: Team of 3. <a href="http://mycode.doesnot.run/2016/02/15/hashcode/">2nd in Ireland, 120th globally</a>.</li>
+                    <li><span class="highlight">NWERC 2015</span>: Team of 3. 1st in Ireland, 74th overall.</li>
+                    <li><span class="highlight">UKIEPC 2015</span>: Team of 3. <a href="http://www.computing.dcu.ie/news/dcu-and-trinity-go-head-head-ukiepc">4th in Ireland, 42nd overall</a>.</li>
+                    <li><span class="highlight">International Olympiad in Informatics 2015</span>: On Irish team.</li>
+                </ul>
+                <ul>
+                    <li>Our project <a href="https://safer.place">safer.place</a> was <a href="https://www.dcu.ie/news/2017/apr/s0417t.shtml">nominated for the DCU President's Prize for Innovation 2017</a>.</li>
+                </ul>
+            </div>
+            <div class="minibox kattis_box">
+                <h1>Kattis</h1>
+                <p>I'm in <span class="highlight">{{ kattis.global_rank }} place globally</span>, and <span class="highlight">{{ kattis.irish_rank }} in Ireland</span> on the Kattis online judge.</p><p>I've solved {{ kattis.num_lang0 }} problems in <span class="highlight">{{ kattis.lang0 }}</span>, and {{ kattis.num_lang1 }} in <span class="highlight">{{ kattis.lang1 }}</span>, and my total score is <span class="highlight">{{ kattis.score }}</span>.</p><p><a href="https://open.kattis.com/users/iandioch">View my profile</a>.</p>
+            </div>
+            <div class="minibox euler_box">
+                <h1>Project Euler</h1>
+                <p>I am in the top 20 Project Euler users in Ireland, and the <span class="highlight">top 0.8% worldwide</span>, with <span class="highlight">{{ euler.total_solved }} problems</span> solved.</p>
+                <p>Most of the {{ euler.num_solutions }} solutions I saved are in <span class="highlight">{{ euler.lang0 }}</span> ({{ euler.num_lang0 }}) and <span class="highlight">{{ euler.lang1 }}</span> ({{ euler.num_lang1 }}).</p>
+            </div>
+            <div class="box project_box">
+                <h1>Projects</h1>
+                <ul>
+                    <li><a href="https://safer.place">safer.place</a> - HackYourWayDay 2017 Hackathon<br>
+                    safer.place is a website to estimate an Irish address’ safety based on government-provided crime data.</li>
+                    <li><span class="highlight">Dipla</span> - 2nd Year University Project<br>
+                    An RPC and distributed computing framework for Python 3.5+.</li>
+                    <li><a href="https://cpssd.net/feedlark">Feedlark</a> - 1st Year University Project<br>
+                    Feedlark is a web-based RSS aggregator that promotes items matching topics the user previously liked.</li>
+                    <li><a href="https://github.com/iandioch/solutions">Solutions</a><br>
+                    A collection of solutions to problems on online judges and competitions like Kattis, Project Euler, and UVa.</li>
+                </ul>
+            </div>
+            <div class="minibox openbugbounty_box">
+                <h1>OpenBugBounty</h1>
+                <p>I have reported <span class="highlight">{{ openbugbounty.num_vulns }} XSS vulnerabilities</span> on OpenBugBounty, of which <span class="highlight">{{ openbugbounty.num_vip }}</span> were on top-50k sites. I was <span class="highlight">Top VIP Researcher of the Week {{ openbugbounty.num_top_vip_of_week }} times</span>.</p>
+            </div>
+        </div>
+        {% endraw %}
+        <script src="./cards.js"></script>
+    </body>
 </html>
