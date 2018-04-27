@@ -6,7 +6,7 @@ import json
 
 app = Flask(__name__)
 
-env = Environment(loader=FileSystemLoader('/home/noah/prog/ceres/templates'))
+env = Environment(loader=FileSystemLoader('/home/waterloo/ceres/templates'))
 
 outs = {
     "resume": "/out/cv",

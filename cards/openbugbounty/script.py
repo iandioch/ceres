@@ -28,7 +28,7 @@ if __name__ == '__main__':
 	page = load_page('https://www.openbugbounty.org/researchers/iandioch/')
 	data = get_data(page)
 	json_data = json.dumps(data, indent=4)
-	with open('/home/noah/prog/ceres/cards/openbugbounty/data.json', 'w') as filewriter:
+	with open('/home/waterloo/ceres/cards/openbugbounty/data.json', 'w') as filewriter:
 		filewriter.write(json_data)
 		filewriter.write("\n")
 	print(json_data)
