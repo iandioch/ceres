@@ -34,12 +34,6 @@ cards = {
     "untappd": create_card("untappd"),
 }
 
-@app.route("/card/<string:name>")
-def get_card(name):
-    if name in cards:
-        return cards[name].get_data()
-    return "ERROR"
-
 @app.route("/cards")
 def get_cards():
     d = {card:json.loads(cards[card].get_data()) for card in cards}
