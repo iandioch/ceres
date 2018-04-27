@@ -26,6 +26,6 @@ if __name__ == '__main__':
     del out['user']['recent_brews']
     out['latest'] = data['response']['user']['recent_brews']['items'][0]
     json_data = json.dumps(out, indent=4)
-    with open('/home/noah/prog/ceres/cards/untappd/data.json', 'w') as filewriter:
+    with open('/home/waterloo/ceres/cards/untappd/data.json', 'w') as filewriter:
         filewriter.write(json_data)
         filewriter.write("\n")

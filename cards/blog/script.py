@@ -53,7 +53,6 @@ if __name__ == '__main__':
     page = load_page(URL)
     data = get_data(page, URL)
     json_data = json.dumps(data, indent=4)
-    with open('/home/noah/prog/ceres/cards/blog/data.json', 'w') as filewriter:
+    with open('/home/waterloo/ceres/cards/blog/data.json', 'w') as filewriter:
         filewriter.write(json_data)
         filewriter.write("\n")
-    print(json_data)
