@@ -51,13 +51,7 @@ def get_out(loc):
 
 @app.route("/")
 def get_index():
-    d = {
-        'cards': [vars(cards[c]) for c in sorted(cards)]
-    }
-    print(d)
-
-    print('TEMPLATE, yeah bb')
-    return render_template('index.html', d)
+    return render_template('index.html', {})
 
 @app.route("/<path:loc>")
 def get_root(loc):
