@@ -14,7 +14,8 @@ outs = {
     "twitter": "https://twitter.com/iandioch",
     "linkedin": "https://ie.linkedin.com/in/iandioch",
     "facebook": "https://facebook.com/noahdonnelly",
-    "github": "https://github.com/iandioch" 
+    "github": "https://github.com/iandioch",
+    "pay": "https://docs.google.com/forms/d/e/1FAIpQLSevIkRXXWpvxz0DRlfDcyS3Kvx--FjKESUZ2wEjTDfNIWUdKw/viewform",
 }
 
 def render_template(name, d):
