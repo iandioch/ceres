@@ -37,7 +37,14 @@ cards = {
 
 @app.route("/cards")
 def get_cards():
-    d = {card:json.loads(cards[card].get_data()) for card in cards}
+    d = {}
+    for card in cards:
+        data = cards[card].get_data()
+        try:
+            d[card] = json.loads(data)
+        except Exception as e:
+            d[card] = {}
+            print(e)
     return json.dumps(d)
 
 @app.route("/raw/<path:loc>")
